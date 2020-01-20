@@ -623,6 +623,10 @@ public class ControllerHandler implements InputManager.InputDeviceListener, UsbD
                     context.isNonStandardXboxBtController = true;
                 }
             }
+            // Remap the Switch button layout to match the standard Xbox button layout.
+            else if (devName.equals("8Bitdo SN30 Pro")) {
+                context.isSwitchController = true;
+            }
         }
 
         LimeLog.info("Analog stick deadzone: "+context.leftStickDeadzoneRadius+" "+context.rightStickDeadzoneRadius);
