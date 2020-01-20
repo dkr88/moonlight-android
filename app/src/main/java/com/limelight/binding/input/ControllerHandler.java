@@ -887,6 +887,18 @@ public class ControllerHandler implements InputManager.InputDeviceListener, UsbD
                 return KeyEvent.KEYCODE_BUTTON_MODE;
             }
         }
+        else if (context.isSwitchController) {
+            switch (event.getScanCode()) {
+                case 304:
+                    return KeyEvent.KEYCODE_BUTTON_B;
+                case 305:
+                    return KeyEvent.KEYCODE_BUTTON_A;
+                case 307:
+                    return KeyEvent.KEYCODE_BUTTON_Y;
+                case 308:
+                    return KeyEvent.KEYCODE_BUTTON_X;
+            }
+        }
 
         if (context.hatXAxis != -1 && context.hatYAxis != -1) {
             switch (event.getKeyCode()) {
@@ -1580,6 +1592,7 @@ public class ControllerHandler implements InputManager.InputDeviceListener, UsbD
         public boolean isNonStandardDualShock4;
         public boolean usesLinuxGamepadStandardFaceButtons;
         public boolean isNonStandardXboxBtController;
+        public boolean isSwitchController;
         public boolean isServal;
         public boolean backIsStart;
         public boolean modeIsSelect;
